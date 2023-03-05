@@ -1,0 +1,47 @@
+[
+    {
+        "model": "fastrapibase.itemrate",
+        "pk": 1,
+        "fields": {
+            "tag_id": "63 E7 83 A7",
+            "name": "T-Shirt",
+            "rate": 500
+        }
+    },
+    {
+        "model": "fastrapibase.itemrate",
+        "pk": 2,
+        "fields": {
+            "tag_id": "63 3A B1 98",
+            "name": "Coffee Mug",
+            "rate": 350
+        }
+    },
+    {
+        "model": "fastrapibase.itemrate",
+        "pk": 3,
+        "fields": {
+            "tag_id": "13 2F 2C AA",
+            "name": "Sweatshirt",
+            "rate": 900
+        }
+    },
+    {
+        "model": "fastrapibase.itemrate",
+        "pk": 4,
+        "fields": {
+            "tag_id": "AA 48 F7 AF",
+            "name": "Cap",
+            "rate": 250
+        }
+    },
+    {
+        "model": "fastrapibase.itemrate",
+        "pk": 5,
+        "fields": {
+            "tag_id": "DC DF 51 33",
+            "name": "Sipper",
+            "rate": 700
+        }
+    }
+]

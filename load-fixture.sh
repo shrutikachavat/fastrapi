@@ -1,0 +1,1 @@
+python fastrapi/manage.py loaddata fastrapi/fixture/itemrate.json
