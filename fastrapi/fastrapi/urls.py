@@ -21,11 +21,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('', include('fastrapibase.urls')),
     path('admin/', admin.site.urls),
-    path('api/', include('fastrapibase.urls')),
     path('api/schema/', SpectacularAPIView.as_view(), name='api-schema'),
     path(
-        'api/docs/',
+        'swagger/',
         SpectacularSwaggerView.as_view(url_name='api-schema'),
         name='api-docs',
     ),

@@ -7,6 +7,8 @@ router = routers.DefaultRouter()
 
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('', views.HomeAPIView.as_view()),
     path('item/items/<int:pk>', views.ItemViewSet.as_view({'get':'retrieve'})),
+    path('item/items/', views.ItemPaginatedViewSet.as_view()),
+    # path('', views.ItemPaginatedViewSet.as_view()),
 ]
