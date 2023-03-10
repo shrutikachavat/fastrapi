@@ -1,6 +1,6 @@
 [
     {
-        "model": "fastrapibase.itemrate",
+        "model": "fastrapibase.productprice",
         "pk": 1,
         "fields": {
             "tag_id": "63 E7 83 A7",
@@ -9,7 +9,7 @@
         }
     },
     {
-        "model": "fastrapibase.itemrate",
+        "model": "fastrapibase.productprice",
         "pk": 2,
         "fields": {
             "tag_id": "63 3A B1 98",
@@ -18,7 +18,7 @@
         }
     },
     {
-        "model": "fastrapibase.itemrate",
+        "model": "fastrapibase.productprice",
         "pk": 3,
         "fields": {
             "tag_id": "13 2F 2C AA",
@@ -27,7 +27,7 @@
         }
     },
     {
-        "model": "fastrapibase.itemrate",
+        "model": "fastrapibase.productprice",
         "pk": 4,
         "fields": {
             "tag_id": "AA 48 F7 AF",
@@ -36,7 +36,7 @@
         }
     },
     {
-        "model": "fastrapibase.itemrate",
+        "model": "fastrapibase.productprice",
         "pk": 5,
         "fields": {
             "tag_id": "DC DF 51 33",

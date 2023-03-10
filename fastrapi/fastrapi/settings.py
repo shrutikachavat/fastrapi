@@ -132,3 +132,5 @@ AUTH_USER_MODEL = 'fastrapibase.User'
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS' : 'drf_spectacular.openapi.AutoSchema',
 }
+
+CART_SESSION_KEY = "KART"

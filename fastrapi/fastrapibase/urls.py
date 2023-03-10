@@ -8,7 +8,8 @@ router = routers.DefaultRouter()
 
 urlpatterns = [
     path('', views.HomeAPIView.as_view()),
-    path('item/items/<int:pk>', views.ItemViewSet.as_view({'get':'retrieve'})),
-    path('item/items/', views.ItemPaginatedViewSet.as_view()),
-    # path('', views.ItemPaginatedViewSet.as_view()),
+    # path('cart/', views.CartViewSet.as_view({'post':'create'})),
+    path('product/products/<int:pk>', views.ProductViewSet.as_view({'get':'retrieve'})),
+    path('product/products/', views.ProductPaginatedViewSet.as_view()),
+    # path('', views.ProductPaginatedViewSet.as_view()),
 ]
