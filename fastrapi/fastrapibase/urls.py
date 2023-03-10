@@ -11,5 +11,5 @@ urlpatterns = [
     # path('cart/', views.CartViewSet.as_view({'post':'create'})),
     path('product/products/<int:pk>', views.ProductViewSet.as_view({'get':'retrieve'})),
     path('product/products/', views.ProductPaginatedViewSet.as_view()),
-    # path('', views.ProductPaginatedViewSet.as_view()),
+    path('', views.ProductPaginatedViewSet.as_view()),
 ]

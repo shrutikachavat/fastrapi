@@ -1,7 +1,7 @@
 {% extends "fastrapibase/base.html" %}
 {% block content %}
-    {% for item in ItemRateList %}
-        <h2>{{ item.name }}</h2>
-        <p>{{ item.rate }}</p>
+    {% for product in ProductPriceList %}
+        <h2>{{ product.title }}</h2>
+        <p>{{ product.price }}</p>
     {% endfor %}
 {% endblock content %}

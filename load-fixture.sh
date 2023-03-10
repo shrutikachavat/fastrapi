@@ -1,1 +1,1 @@
-python fastrapi/manage.py loaddata fastrapi/fixture/itemrate.json
+python fastrapi/manage.py loaddata fastrapi/fixture/productprice.json
