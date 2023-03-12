@@ -7,3 +7,7 @@ header{
      float: left;
      max-width: 1600px;
  }
+ 
+ footer p{
+    color: red;
+ }
