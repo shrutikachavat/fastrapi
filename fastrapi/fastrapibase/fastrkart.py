@@ -35,7 +35,7 @@ class Fastrkart:
         if not kart:
             kart = self.kart[settings.KART_SESSION_ID] = {
                 "products": {},
-                "tax": settings.KART_CHECKOUT_TAX,
+                "tax": 0,
                 "sub_total": 0,
                 "total": 0
             }
