@@ -25,9 +25,9 @@ from .fastrkart import Fastrkart
 class ProductViewSet(viewsets.ViewSet):
 
     def retrieve(self, request, pk=None):
-        queryset = models.ProductPrice.objects.all()
+        queryset = models.ProductRate.objects.all()
         product = get_object_or_404(queryset, pk=pk)
-        serializer = serializers.ProductPriceSerializer(product)
+        serializer = serializers.ProductRateSerializer(product)
         return Response(serializer.data)
     
 # class FastrkartDetailsAPIView(APIView):
@@ -50,7 +50,7 @@ class FastrkartViewSet(viewsets.GenericViewSet):
 
     def create(self, request, pk=None):
         kart = Fastrkart(request)
-        product = get_object_or_404(models.ProductPrice,id=pk)
+        product = get_object_or_404(models.ProductRate,id=pk)
         kart.fastrkart_add(product=product)
         return render(request,
                       context={"data":kart},
@@ -58,7 +58,7 @@ class FastrkartViewSet(viewsets.GenericViewSet):
     
     def remove(self, request, pk=None):
         kart = Fastrkart(request)
-        product = get_object_or_404(models.ProductPrice, id=pk)
+        product = get_object_or_404(models.ProductRate, id=pk)
         kart.fastrkart_remove(product=product)
         return render(request,
                       context={"data":kart},
@@ -69,11 +69,11 @@ class StandardResultsSetPagination(PageNumberPagination):
     max_page_size = 5
 
 class ProductPaginatedViewSet(ListAPIView):
-    queryset = models.ProductPrice.objects.all()
-    serializer_class = serializers.ProductPriceSerializer
+    queryset = models.ProductRate.objects.all()
+    serializer_class = serializers.ProductRateSerializer
     pagination_class = StandardResultsSetPagination
     renderer_classes = [TemplateHTMLRenderer]
 
     def get(self, request):
-        return Response({"ProductPriceList": self.get_queryset() }, 
+        return Response({"ProductRateList": self.get_queryset() }, 
                         template_name='fastrapibase/index.html')

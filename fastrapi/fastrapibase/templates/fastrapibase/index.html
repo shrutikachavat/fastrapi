@@ -1,7 +1,7 @@
 {% extends "fastrapibase/base.html" %}
 {% block content %}
-    {% for id, product in data.kart.products.items %}
-        <p>Product Title: {{ product.title }}</p>
+    {% for id, product in data.kart.products.items reversed %}
+        <p>Product ID: {{ product.id }} TITLE: {{ product.title }} QUANTITY: {{ product.quantity }}</p>
     {% endfor %}
 {% endblock content %}
 {% block footer %}
