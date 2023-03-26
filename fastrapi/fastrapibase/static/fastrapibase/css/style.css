@@ -9,5 +9,19 @@ header{
  }
  
  footer p{
-    color: red;
+    color: white;
+ }
+
+ .kart {
+    margin: 100px 0;
+    background-color: #F6F5FA;
+    padding: 60px 0;
+ }
+
+ .product-image {
+    width: 115px;
+ }
+
+ .product-remove {
+    width: 25px;
  }

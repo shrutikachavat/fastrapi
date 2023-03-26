@@ -58,37 +58,42 @@ class Fastrkart:
             return sub_total
         return sub_total
             
-    def fastrkart_add(self, product):
+    def fastrkart_add(self, product, quantity):
         product_id = str(product.id)
+        quantity = int(quantity)
         if product_id not in self.kart["products"]:
             self.kart["products"][product_id] = ProductRateSerializer(product).data
-            self.kart["products"][product_id]["quantity"] = 1
-            # process billing
-            self.kart["sub_total"] = Fastrkart.fastkart_sub_total(self.kart["products"])
-            self.kart["tax"] = self.kart["sub_total"] * round((settings.KART_CHECKOUT_TAX/100),2)
-            self.kart["total"] = self.kart["sub_total"] + self.kart["tax"]
-        else:
-            self.kart["products"][product_id]["quantity"] += 1
-            # process billing
-            self.kart["sub_total"] = Fastrkart.fastkart_sub_total(self.kart["products"])
-            self.kart["tax"] = self.kart["sub_total"] * round((settings.KART_CHECKOUT_TAX/100),2)
-            self.kart["total"] = self.kart["sub_total"] + self.kart["tax"]
+            self.kart["products"][product_id]["quantity"] = 0
+        self.kart["products"][product_id]["quantity"] += quantity
+        # process billing
+        self.kart["sub_total"] = Fastrkart.fastkart_sub_total(self.kart["products"])
+        self.kart["tax"] = self.kart["sub_total"] * round((settings.KART_CHECKOUT_TAX/100),2)
+        self.kart["total"] = self.kart["sub_total"] + self.kart["tax"]
 
-    def fastrkart_remove(self, product):
+    def fastrkart_remove(self, product, quantity):
         product_id = str(product.id)
+        quantity = int(quantity)
         if product_id in self.kart["products"]:
-            if self.kart["products"][product_id]["quantity"] > 1:
-                self.kart["products"][product_id]["quantity"] -= 1
+            if self.kart["products"][product_id]["quantity"] <= quantity:
+                del self.kart["products"][product_id]
                 # process billing
                 self.kart["sub_total"] = Fastrkart.fastkart_sub_total(self.kart["products"])
                 self.kart["tax"] = self.kart["sub_total"] * round((settings.KART_CHECKOUT_TAX/100),2)
                 self.kart["total"] = self.kart["sub_total"] + self.kart["tax"]
+
+            # if self.kart["products"][product_id]["quantity"] > quantity:
             else:
-                del self.kart["products"][product_id]
-                            # process billing
+                self.kart["products"][product_id]["quantity"] -= quantity
+                # process billing
                 self.kart["sub_total"] = Fastrkart.fastkart_sub_total(self.kart["products"])
                 self.kart["tax"] = self.kart["sub_total"] * round((settings.KART_CHECKOUT_TAX/100),2)
                 self.kart["total"] = self.kart["sub_total"] + self.kart["tax"]
 
     # def save(self):
     #     self.session.modified = True
+
+# TODOS
+# livereload AJAX jquery hardware API call page update?
+# CSS
+# Remove Item from kart all quantity at once
+# Hardware Integration
