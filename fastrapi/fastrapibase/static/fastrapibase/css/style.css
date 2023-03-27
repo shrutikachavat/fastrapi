@@ -8,20 +8,33 @@ header{
      max-width: 1600px;
  }
  
- footer p{
-    color: white;
- }
+footer p {
+   color: white;
+}
 
- .kart {
-    margin: 100px 0;
-    background-color: #F6F5FA;
-    padding: 60px 0;
- }
+.product-display {
+   background-color: white;
+   border-radius: 10px;
+	padding: 20px 30px;
+	margin: 20px 20px 20px 20px;
+}
 
- .product-image {
-    width: 115px;
- }
+.center-item{
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+}
 
- .product-remove {
-    width: 25px;
- }
+.kart {
+   margin: 100px 0;
+   background-color: #F6F5FA;
+   padding: 20px 20px;
+}
+
+.product-image {
+   width: 115px;
+}
+
+.product-remove {
+   width: 25px;
+}
