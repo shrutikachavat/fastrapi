@@ -10,16 +10,12 @@
                             {% with 'fastrapibase/media/'|add:product.title|add:'.png' as product_image %}
                                 <img class="product-image" src="{% static product_image %}" alt="product image">
                                 <h5>{{ product.title }}</h5>
-                            {% endwith %}
-                        </div>
-                        <div class="col-md-5 center-item">
-                            <div class="input-group number-spinner">
                                 <button id="{{ product.id }}-minus" class="btn btn-default"><i class="fas fa-minus"></i></button>
                                 <input id="{{ product.id }}-quantity" type="number" min="0" class="form-control text-center" value="{{ product.quantity }}">
                                 <button id="{{ product.id }}-plus" class="btn btn-default"><i class="fas fa-plus"></i></button>
-                            </div>
-                            <h5>Rs.<span id="{{ product.id }}-rate">{{ product.rate }}</span></h5>
-                            <img  class="product-remove" id="{{ product.id }}-remove" src="{% static 'fastrapibase/media/remove.png' %}" alt="">
+                                <h5>Rs.<span id="{{ product.id }}-rate">{{ product.rate }}</span></h5>
+                                <img  class="product-remove" id="{{ product.id }}-remove" src="{% static 'fastrapibase/media/remove.png' %}" alt="">
+                            {% endwith %}
                         </div>
                     </div>
                 {% endfor %}
