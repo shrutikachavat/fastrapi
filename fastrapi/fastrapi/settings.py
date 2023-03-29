@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'fastrapibase',
     'rest_framework',
+    'rest_framework.authtoken',
     'drf_spectacular',
 ]
 

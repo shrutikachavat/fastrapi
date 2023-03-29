@@ -8,20 +8,13 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.generics import ListAPIView
 from drf_spectacular.utils import extend_schema
 from drf_spectacular.utils import OpenApiParameter, OpenApiTypes
+from rest_framework import generics, authentication, permissions
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.settings import api_settings
 from rest_framework.generics import GenericAPIView
 from .fastrkart import Fastrkart
 
 # Create your views here.
-
-# def home(request):
-#     return render(request, 'fastr/index.html')
-
-# class HomeAPIView(APIView):
-#     renderer_classes = [TemplateHTMLRenderer]
-
-#     def get(self, request):
-#         return Response(status=status.HTTP_200_OK,
-#                         template_name='fastrapibase/index.html')
 
 class ProductViewSet(viewsets.ViewSet):
 
@@ -30,18 +23,12 @@ class ProductViewSet(viewsets.ViewSet):
         product = get_object_or_404(queryset, pk=pk)
         serializer = serializers.ProductRateSerializer(product)
         return Response(serializer.data)
-    
-# class FastrkartDetailsAPIView(APIView):
-#     template_classes = [TemplateHTMLRenderer]
 
-#     def get(request):
-#         kart = Fastrkart(request)
-#         return render(request,
-#                       {'kart':kart},
-#                       template_name='fastrapibase/index.html')
 
 class FastrkartDetailsAPIView(GenericAPIView):
     template_classes = [TemplateHTMLRenderer]
+    # authentication_classes = [authentication.TokenAuthentication]
+    # permission_classes = [permissions.IsAuthenticated]
 
     def get(self, request):
         kart = Fastrkart(request)
@@ -51,16 +38,20 @@ class FastrkartDetailsAPIView(GenericAPIView):
     
 class FastrkartAddAPIView(GenericAPIView):
     template_classes = [TemplateHTMLRenderer]
+    # authentication_classes = [authentication.TokenAuthentication]
+    # permission_classes = [permissions.IsAuthenticated]
 
     @extend_schema(
         parameters=[
+          OpenApiParameter("tag_id", OpenApiTypes.STR, OpenApiParameter.QUERY, required=True),
           OpenApiParameter("quantity", OpenApiTypes.INT, OpenApiParameter.QUERY, required=False)
         ]
     )
-    def post(self, request, pk=None, quantity=1):
+    def post(self, request, quantity=1):
+        tag_id = request.query_params.get("tag_id", None)
         quantity = request.query_params.get("quantity", quantity)
         kart = Fastrkart(request)
-        product = get_object_or_404(models.ProductRate, id=pk)
+        product = get_object_or_404(models.ProductRate, tag_id=tag_id)
         kart.fastrkart_add(product=product, quantity=quantity)
         return render(request,
                       context={"data":kart},
@@ -68,16 +59,19 @@ class FastrkartAddAPIView(GenericAPIView):
     
 class FastrkartRemoveAPIView(GenericAPIView):
     template_classes = [TemplateHTMLRenderer]
+    # authentication_classes = [authentication.TokenAuthentication]
+    # permission_classes = [permissions.IsAuthenticated]
 
     @extend_schema(
         parameters=[
             OpenApiParameter("quantity", OpenApiTypes.INT, OpenApiParameter.QUERY, required=False)
         ]
     )
-    def delete(self, request, pk=None, quantity=1):
+    def delete(self, request, quantity=1):
+        tag_id = request.query_params.get("tag_id", None)
         quantity = request.query_params.get("quantity", quantity)
         kart = Fastrkart(request)
-        product = get_object_or_404(models.ProductRate, id=pk)
+        product = get_object_or_404(models.ProductRate, tag_id=tag_id)
         kart.fastrkart_remove(product=product, quantity=quantity)
         return render(request,
                       context={"data":kart},
@@ -96,3 +90,18 @@ class ProductPaginatedViewSet(ListAPIView):
     def get(self, request):
         return Response({"ProductRateList": self.get_queryset() }, 
                         template_name='fastrapibase/index.html')
+    
+class CreateUserAPIView(generics.CreateAPIView):
+    serializer_class = serializers.UserSerializer
+
+class CreateTokenView(ObtainAuthToken):
+    serializer_class = serializers.AuthTokenSerializer
+    renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
+
+class ManageUserView(generics.RetrieveUpdateAPIView):
+    serializer_class = serializers.UserSerializer
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
