@@ -1,0 +1,23 @@
+{% extends "fastrapibase/base.html" %}
+{% load static %}
+{% block login %}
+    <div class="login">
+        <form action="{% url 'kart-token' %}" id="login-form" method="post">
+            <label for="email">
+                <b>Email</b>
+            </label>
+            <br>
+            <input type="text" name="email" id="email" placeholder="Email Address">
+            <br>
+            <label for="password">
+                <b>Password</b>
+            </label>
+            <br>
+            <input type="password" name="password" id="password" placeholder="Password">
+            <br>
+            <!-- <a href="{% url 'kart-token' %}"> -->
+                <input class="bg-dark" type="submit" name="login-button" id="login-button" value="Log In">
+            <!-- </a> -->
+        </form>
+    </div>
+{% endblock login %}
