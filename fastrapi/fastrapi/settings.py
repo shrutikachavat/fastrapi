@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -47,10 +47,11 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'fastrapi.authtokenmiddleware.AuthTokenMiddleware',
 ]
 
 ROOT_URLCONF = 'fastrapi.urls'
@@ -132,9 +133,22 @@ AUTH_USER_MODEL = 'fastrapibase.User'
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS' : 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication'
+    ],
 }
 
 SESSION_SAVE_EVERY_REQUEST = True
 
 KART_SESSION_ID = "KART"
 KART_CHECKOUT_TAX = 10
+
+ARDUINO_PORT = '/dev/tty.usbmodem14101'
+ARDUINO_BAUDRATE = 9600
+
+PRODUCT_DETAILS = {"63E783A7":1,
+     "633AB198":2,
+     "132F2CAA":3,
+     "AA48F7AF":4,
+     "DCDF5133":5}

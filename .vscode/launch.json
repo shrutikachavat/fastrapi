@@ -5,12 +5,31 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/fastrapi/manage.py",
             "args": [
                 "runserver"
+            ],
+            "django": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Django Arduino",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/fastrapi/manage.py",
+            "args": [
+                "arduino"
             ],
             "django": true,
             "justMyCode": true

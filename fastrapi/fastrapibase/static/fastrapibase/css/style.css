@@ -43,3 +43,30 @@ footer p {
 .product-remove {
    width: 25px;
 }
+
+.login {
+   margin: 80px auto auto auto;
+   width: 40%;
+   background-color: #F6F5FA;
+   padding: 10px;
+   text-align: center;
+}
+
+.login form {
+   padding: 10px;
+}
+
+.login form label {
+   padding: 10px;
+}
+
+.login form input {
+   padding: 10px;
+}
+
+.login #login-button {
+   margin-top: 20px;
+   border: 0px;
+   color: white;
+   border-radius: 10%;
+}

@@ -15,9 +15,10 @@
             <br>
             <input type="password" name="password" id="password" placeholder="Password">
             <br>
-            <!-- <a href="{% url 'kart-token' %}"> -->
+            <input type="hidden" name="auth_token" value="{{ request.COOKIES.auth_token }}">
+            <a href="{% url 'kart-token' %}">
                 <input class="bg-dark" type="submit" name="login-button" id="login-button" value="Log In">
-            <!-- </a> -->
+            </a>
         </form>
     </div>
 {% endblock login %}

@@ -22,7 +22,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('fastrapibase.urls')),
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     path('api/schema/', SpectacularAPIView.as_view(), name='api-schema'),
     path(
         'swagger/',
