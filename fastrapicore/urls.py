@@ -8,5 +8,6 @@ router = routers.DefaultRouter()
 
 urlpatterns = [
     # product
-    path('product/products/<int:pk>', views.ProductViewSet.as_view({'get':'retrieve'})),
+    # path('product/products/<int:pk>', views.ProductViewSet.as_view({'get':'retrieve'})),
+    path('product/products', views.ProductViewSet.as_view({'get':'retrieve'})),
 ]
