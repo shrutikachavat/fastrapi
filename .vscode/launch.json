@@ -16,7 +16,7 @@
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/fastrapi/manage.py",
+            "program": "${workspaceFolder}/manage.py",
             "args": [
                 "runserver"
             ],
