@@ -22,17 +22,6 @@
             ],
             "django": true,
             "justMyCode": true
-        },
-        {
-            "name": "Python: Django Arduino",
-            "type": "python",
-            "request": "launch",
-            "program": "${workspaceFolder}/fastrapi/manage.py",
-            "args": [
-                "arduino"
-            ],
-            "django": true,
-            "justMyCode": true
         }
     ]
 }
