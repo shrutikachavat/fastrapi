@@ -3,45 +3,55 @@
         "model": "fastrapicore.productrate",
         "pk": 1,
         "fields": {
-            "tag_id": "63E783A7",
-            "title": "T-Shirt",
-            "rate": 500
+            "tag_id": "99231131167",
+            "title": "Puma T-shirt",
+            "rate": 500,
+            "size":"L",
+            "image": "1.png"
         }
     },
     {
         "model": "fastrapicore.productrate",
         "pk": 2,
         "fields": {
-            "tag_id": "633AB198",
-            "title": "Coffee Mug",
-            "rate": 350
+            "tag_id": "9958177152",
+            "title": "Nike Sketchers",
+            "rate": 350,
+            "size":"38",
+            "image": "2.png"
         }
     },
     {
         "model": "fastrapicore.productrate",
         "pk": 3,
         "fields": {
-            "tag_id": "132F2CAA",
+            "tag_id": "194744170",
             "title": "Sweatshirt",
-            "rate": 900
+            "rate": 900,
+            "size":"S",
+            "image": "3.png"
         }
     },
     {
         "model": "fastrapicore.productrate",
         "pk": 4,
         "fields": {
-            "tag_id": "AA48F7AF",
+            "tag_id": "17072247175",
             "title": "Cap",
-            "rate": 250
+            "rate": 250,
+            "size":"M",
+            "image": "4.png"
         }
     },
     {
         "model": "fastrapicore.productrate",
         "pk": 5,
         "fields": {
-            "tag_id": "DCDF5133",
+            "tag_id": "2202238151",
             "title": "Sipper",
-            "rate": 700
+            "rate": 700,
+            "size":"S",
+            "image": "5.png"
         }
     }
 ]
