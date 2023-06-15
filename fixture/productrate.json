@@ -4,10 +4,16 @@
         "pk": 1,
         "fields": {
             "tag_id": "99231131167",
-            "title": "Puma T-shirt",
+            "brand":"Ariel",
+            "title": "Ariel- Brown Pants",
+            "size":"S",
+            "gender": "M",
+            "type": "Kids" ,
+            "category": "Casuals" ,
+            "material": "Cotton",
+            "colour": "Brown",
             "rate": 500,
-            "size":"L",
-            "image": "1.png"
+            "image": "1.jpeg"
         }
     },
     {
@@ -15,10 +21,16 @@
         "pk": 2,
         "fields": {
             "tag_id": "9958177152",
-            "title": "Nike Sketchers",
-            "rate": 350,
-            "size":"38",
-            "image": "2.png"
+            "brand":"BABY",
+            "title": "BABY- Pink Striped Babysuit",
+            "size":"S",
+            "gender": "F",
+            "type": "Kids",
+            "category": "Casuals",
+            "material": "Cotton",
+            "colour": "Pink",
+            "rate": 899,
+            "image": "2.jpeg"
         }
     },
     {
@@ -26,10 +38,16 @@
         "pk": 3,
         "fields": {
             "tag_id": "194744170",
-            "title": "Sweatshirt",
-            "rate": 900,
+            "brand":"Child World",
+            "title": "Child World- Pink Cap",
             "size":"S",
-            "image": "3.png"
+            "gender": "Unisex",
+            "type": "Kids" ,
+            "category": "Casuals",
+            "material": "Cotton",
+            "colour": "Pink" ,
+            "rate": 399,
+            "image": "3.jpeg"
         }
     },
     {
@@ -37,10 +55,16 @@
         "pk": 4,
         "fields": {
             "tag_id": "17072247175",
-            "title": "Cap",
-            "rate": 250,
-            "size":"M",
-            "image": "4.png"
+            "brand":"BABY",
+            "title": "BABY- Rabbit Bodysuit",
+            "size":"S",
+            "gender": "Unisex",
+            "type": "Kids",
+            "category":"Casuals" ,
+            "material": "Cotton",
+            "colour": "Pink",
+            "rate": 1099,
+            "image": "4.jpeg"  
         }
     },
     {
@@ -48,10 +72,16 @@
         "pk": 5,
         "fields": {
             "tag_id": "2202238151",
-            "title": "Sipper",
-            "rate": 700,
+            "brand":"BABY",
+            "title": "BABY- Blue Fruitcap",
             "size":"S",
-            "image": "5.png"
+            "gender": "Unisex",
+            "type": "Kids",
+            "category": "Casuals",
+            "material": "Cotton",
+            "colour": "Blue" ,
+            "rate": 250,
+            "image": "5.jpeg"
         }
     }
 ]
